@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import FormView,TemplateView
 from django.urls import reverse
 
+
+
 from sales.forms import *
 
 
@@ -28,3 +30,7 @@ class SellMedicineReport(LoginRequiredMixin,TemplateView):
         kwargs['transactions'] = MedicineTransaction.objects.all()
         print(kwargs['transactions'])
         return kwargs
+
+# @login_required
+# def AutomateFile(request):
+
