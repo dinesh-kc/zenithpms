@@ -10,7 +10,8 @@
             <tr>
 
                 <th>SN</th>
-                <th>Name</th>
+                <th>Medicine Name</th>
+                <th>Customer Name</th>
                 <th>Unit Price</th>
                 <th>Quantity</th>
                 <th>Amount to Pay</th>
@@ -25,6 +26,7 @@
             <tr>
                 <td>{{forloop.counter}}</td>
                 <td>{{transaction.medicine}}</td>
+                <td>{{transaction.customer_name}}</td>
                 <td>{{transaction.medicine.total_amount | intcomma}}</td>
 
                 <td>{{transaction.quantity  }}</td>

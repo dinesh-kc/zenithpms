@@ -14,6 +14,7 @@ class MedicineTransaction(models.Model):
     received_amount = models.IntegerField(default=0)
     medicine = models.ForeignKey(Medicine,on_delete=models.CASCADE)
     quantity = models.IntegerField(default=5,null=True,blank=True)
+    customer_name = models.CharField(max_length=255,null=True,blank=True)
 
     @property
     def amount_to_pay(self):
