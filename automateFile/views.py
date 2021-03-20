@@ -40,7 +40,8 @@ def automateFile(request):
                     'supplier':ed[3],
                     'bought_date':ed[4],
                     'expiry_date':ed[5],
-                    'time_table':ed[6]
+                    'time_table':ed[6],
+                    'quantity':ed[7] # default coz db design
                 }
             Medicine.objects.create(**temp)
         return render(request,'manage_medicine.html',{'is_imported':True,'medicines':Medicine.objects.all()})

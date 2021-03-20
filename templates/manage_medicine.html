@@ -52,6 +52,7 @@
             <th scope="col">Supplier</th>
             <th scope="col">Bought Date</th>
             <th scope="col">Time Table</th>
+            <th scope="col">Available Quantity</th>
             <th scope="col">Action</th>
 
           </tr>
@@ -67,6 +68,7 @@
             <td>{{medicine.bought_date}}</td>
             <td>{{medicine.expiry_date}}</td>
             <td>{{medicine.time_table}}</td>
+            <td>{{medicine.quantity}}</td>
             <td>
               <a href="/medicine_update/{{medicine.id}}" class="btn btn-danger"> U </a>
               <a href="/medicine_delete/{{medicine.id}}" class="btn btn-danger"> D </a>

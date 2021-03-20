@@ -17,7 +17,12 @@ class SellMedicine(LoginRequiredMixin,FormView):
     success_url = '/sales/sale_medicine_report'
 
     def form_valid(self, form):
-        form.save()
+        obj = form.save(commot=False)
+        medicine_id = obj.medicine 
+        mobj = Medicine.objects.get(id=medicine_id)
+        mobj.quantity -= obj.quantity
+        mobj.save()
+        obj.save() 
         return HttpResponseRedirect('/sales/sale_medicine_report')
 
 class SellMedicineReport(LoginRequiredMixin,TemplateView):

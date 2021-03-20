@@ -13,7 +13,7 @@ class MedicineTransaction(models.Model):
     transaction_type = models.IntegerField(choices=TRANSACTION_TYPE)
     received_amount = models.IntegerField(default=0)
     medicine = models.ForeignKey(Medicine,on_delete=models.CASCADE)
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(default=5,null=True,blank=True)
 
     @property
     def amount_to_pay(self):
