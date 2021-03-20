@@ -12,10 +12,11 @@ from automateFile.views import automateFile
 from viewUsers.views import viewUsers
 
 from django.contrib.auth.decorators import login_required
+from .views import *
 
 @login_required
 def dashboard(request):
-    return render(request, 'home.html')
+    return render(request, 'base.html')
 
 
 urlpatterns = [
@@ -24,6 +25,10 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('sales/',include('sales.urls')),
     path('home', dashboard),
+    path("register/", register, name="register"),
+    path("register_view/", register_view, name="register_view"),
+    # path("logout/", logout, name="logout"),
+
 
 
 
@@ -36,7 +41,7 @@ urlpatterns = [
     path('viewSales_Credit', viewSales_Credit),
     path('orderMedicine', orderMedicine),
     path('automateFile', automateFile),
-    path('viewUsers', viewUsers),
+    # path('viewUsers', viewUsers),
     path('medicine_update/<int:id>', medicine_update),
     path('medicine_delete/<int:id>', medicine_delete),
 

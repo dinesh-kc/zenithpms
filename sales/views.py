@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import FormView,TemplateView
 from django.urls import reverse
+from manage_medicines.models import Medicine
 
 
 
@@ -17,8 +18,8 @@ class SellMedicine(LoginRequiredMixin,FormView):
     success_url = '/sales/sale_medicine_report'
 
     def form_valid(self, form):
-        obj = form.save(commot=False)
-        medicine_id = obj.medicine 
+        obj = form.save(commit=False)
+        medicine_id = obj.medicine.id 
         mobj = Medicine.objects.get(id=medicine_id)
         mobj.quantity -= obj.quantity
         mobj.save()

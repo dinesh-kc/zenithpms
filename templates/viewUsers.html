@@ -7,20 +7,11 @@
 <div style="margin-left: 260px; padding: 22px;">
 
 
-<div class="form-group" style = "width: 250px; margin: 10px;">
-    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Search by Name">
-  </div>
-        <button type="button" class="btn btn-danger" style= "margin-left: 280px; margin-top: -85px; width: 120px;" >Search</button>
-
-
-
-<div class="form-group" style = "width: 250px; margin-left: 430px; margin-top: -70px;">
-    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Search by Exp.Date">
-  </div>
-        <button type="button" class="btn btn-danger" style= "margin-left: 700px; margin-top: -100px; width: 120px;" >Search</button>
 
 <div class="card" style = "margin: 12px; margin-top: -15px;">
   <div class="card-header thead-light">
+  <a href="{% url 'register' %}" > Register New</a>
+<br>
     User Details
   </div>
   <div class="card-body">
@@ -30,51 +21,27 @@
   <thead class="thead-light">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">Contact Number</th>
-      <th scope="col">Action</th>
+      <th scope="col">Username</th>
+      <th scope="col">User Status</th>
+      <th scope="col">User Role</th>
+    
       
     </tr>
   </thead>
   <tbody>
+    {% for user in users %}
     <tr>
-      <th scope="row">1</th>
-      <td>Pranish Katwal</td>
-      <td>Admin</td>
-      <td>9815332185</td>
-      <td>
-      <a href = "#" class = "btn btn-danger"> Update </a>
-      <a href = "#" class = "btn btn-danger" style = "margin-left: 60px; margin-top: -2px;"> Delete </a>
 
-      </td>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{user.username}}</td>
+      <td>{% if user.is_active %} Active {% else  %} Inactive {% endif %}</td>
+      <td>{% if user.is_superuser %} Super User {% else %} Staff User {% endif %}</td>
+  
+    
 
     </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>Pranish Katwal</td>
-      <td>Admin</td>
-      <td>9815332185</td>
-      <td>
-      <a href = "#" class = "btn btn-danger"> Update </a>
-      <a href = "#" class = "btn btn-danger" style = "margin-left: 60px; margin-top: -2px;"> Delete </a>
-
-      </td>
-
-    </tr>
-
-   <tr>
-      <th scope="row">1</th>
-      <td>Pranish Katwal</td>
-      <td>Admin</td>
-      <td>9815332185</td>
-      <td>
-      <a href = "#" class = "btn btn-danger"> Update </a>
-      <a href = "#" class = "btn btn-danger" style = "margin-left: 60px; margin-top: -2px;"> Delete </a>
-
-      </td>
-
-    </tr>
+     
+{% endfor %}
 
 
     

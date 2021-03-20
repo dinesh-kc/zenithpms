@@ -276,14 +276,27 @@
                     </div>
 
 
+                    {% if user.is_superuser %}
                     <div class="card class=" text-light bg-dark""
                         style="color: white; background-color: #2F4F4F; height: 50px;">
                         <div class="card-body">
                             <i class="nav-icon fas fa-th"></i>
 
-                            <a href="/viewUsers" style="margin-left: 14px;"> View Users </a>
+                            <a href="{% url 'register_view' %}" style="margin-left: 14px;"> View Users </a>
                         </div>
                     </div>
+                    {% endif %}
+
+                    {% if user.is_authenticated %} 
+                    <div class="card class=" text-light bg-dark""
+                    style="color: white; background-color: #2F4F4F; height: 50px;">
+                    <div class="card-body">
+                        <i class="nav-icon fas fa-th"></i>
+
+                        <a href="{% url 'logout' %}" style="margin-left: 14px;"> Logout </a>
+                    </div>
+                </div>
+                    {% endif %}
 
 
          
