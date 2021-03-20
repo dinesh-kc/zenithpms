@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'viewSales_Cash',
     'django_filters',
     'import_export',
+    'crispy_forms',
+    'django.contrib.humanize',
 
     'sales',
     
@@ -159,3 +161,5 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL='/home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

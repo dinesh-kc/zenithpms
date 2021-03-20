@@ -9,3 +9,10 @@ class Medicine(models.Model):
     bought_date = models.CharField(max_length = 30)
     expiry_date = models.CharField(max_length = 30)
     time_table = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.med_name
+
+    @property
+    def total_amount(self):
+        return self.selling_price

@@ -22,6 +22,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
 </head>
 
 
@@ -245,7 +247,7 @@
                         <div class="card-body">
                             <i class="nav-icon fas fa-th"></i>
 
-                            <a href="{% url 'sell_medicine' %}" style="margin-left: 14px;"> sales </a>
+                            <a href="{% url 'sell_medicine_report' %}" style="margin-left: 14px;"> sales </a>
                         </div>
                     </div>
 
@@ -303,8 +305,17 @@
                     <script src="{% static 'dist/js/demo.js' %}"></script>
                     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
                     <script src="{% static 'dist/js/pages/dashboard3.js' %}"></script>
+
+                      
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
 </body>
 
+<script>
+    $(document).ready( function () {
+    $('#tblFilter').DataTable();
+} );
+</script>
 </html>
 
 
